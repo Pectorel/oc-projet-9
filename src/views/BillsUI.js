@@ -20,6 +20,20 @@ const row = (bill) => {
   }
 
 const rows = (data) => {
+
+  // We sort data by date
+  if(data && data.length) {
+    data.sort((a, b) => {
+
+      let aComps = a.date.split("-");
+      let bComps = b.date.split("-");
+      let aDate = new Date(aComps[0], aComps[1], aComps[2]);
+      let bDate = new Date(bComps[0], bComps[1], bComps[2]);
+
+
+      return bDate.getTime() - aDate.getTime();
+    });
+  }
   return (data && data.length) ? data.map(bill => row(bill)).join("") : ""
 }
 

@@ -2,6 +2,23 @@ import VerticalLayout from './VerticalLayout.js'
 
 export default () => {
 
+  const modal = () => (`
+    <div class="modal fade" id="modaleError" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">💥 Erreur</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+          </div>
+        </div>
+      </div>
+    </div>
+  `)
+
   return (`
     <div class='layout'>
       ${VerticalLayout(120)}
@@ -69,6 +86,7 @@ export default () => {
           </form>
         </div>
       </div>
+      ${modal()}
     </div>
   `)
 }
