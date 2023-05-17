@@ -56,7 +56,6 @@ export default class NewBill {
       // We show an error to the user
       $('#modaleError').find(".modal-body").html(`<p style='text-align: center;'>Le formulaire n'accepte que les images au format .png, .jpeg ou .jpg</p>`)
       if (typeof $('#modaleError').modal === 'function') $('#modaleError').modal('show')
-      //alert("Veuillez insérer une image au format .png, .jpeg ou jpg uniquement");
     }
 
 
