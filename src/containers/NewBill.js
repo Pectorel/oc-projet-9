@@ -54,7 +54,7 @@ export default class NewBill {
       // We empty the file input
       this.document.querySelector(`input[data-testid="file"]`).value = "";
       // We show an error to the user
-      $('#modaleError').find(".modal-body").html(`<p style='text-align: center;'>Le formulaire n'accepte que les images au format .png, .jpeg ou .jpg</p>`)
+      $('#modaleError').find(".modal-body").html("<p style='text-align: center;'>Le formulaire n'accepte que les images au format .png, .jpeg ou .jpg</p>")
       if (typeof $('#modaleError').modal === 'function') $('#modaleError').modal('show')
     }
 
