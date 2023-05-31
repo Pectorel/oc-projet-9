@@ -14,7 +14,6 @@ import userEvent from "@testing-library/user-event";
 import { formatDate } from "../app/format.js"
 
 
-
 jest.mock("../app/store", () => mockStore)
 
 describe("Given I am connected as an employee", () => {
@@ -66,7 +65,6 @@ describe("Given I am connected as an employee", () => {
           userEvent.click(icon)
           let ticket = screen.getByTestId("bill-ticket");
           expect(ticket.getAttribute("src")).toEqual(icon.getAttribute("data-bill-url"))
-
         }
 
       })

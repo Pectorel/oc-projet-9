@@ -3,7 +3,7 @@ import VerticalLayout from './VerticalLayout.js'
 export default () => {
 
   const modal = () => (`
-    <div class="modal fade" id="modaleError" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade" id="modaleError" data-testid="error-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">

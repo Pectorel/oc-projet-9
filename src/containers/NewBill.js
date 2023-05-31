@@ -15,6 +15,8 @@ export default class NewBill {
     this.billId = null
     new Logout({ document, localStorage, onNavigate })
   }
+
+  // Called when file is changed in file input
   handleChangeFile = e => {
     const validExtensions = [
       "png",
@@ -23,7 +25,7 @@ export default class NewBill {
     ];
     e.preventDefault()
     const file = this.document.querySelector(`input[data-testid="file"]`).files[0]
-    const filePath = e.target.value.split(/\\/g)
+    const filePath = file.name.split(/\\/g)
     const fileName = filePath[filePath.length-1]
     const fileExtension = fileName.split(".").pop();
 
@@ -44,7 +46,7 @@ export default class NewBill {
           }
         })
         .then(({fileUrl, key}) => {
-          console.log(fileUrl)
+          //console.log(fileUrl)
           this.billId = key
           this.fileUrl = fileUrl
           this.fileName = fileName
