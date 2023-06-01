@@ -1,4 +1,4 @@
-import { ROUTES_PATH } from '../constants/routes.js'
+import {ROUTES, ROUTES_PATH} from '../constants/routes.js'
 import Logout from "./Logout.js"
 
 export default class NewBill {
@@ -80,7 +80,7 @@ export default class NewBill {
       status: 'pending'
     }
     this.updateBill(bill)
-    this.onNavigate(ROUTES_PATH['Bills'])
+    //this.onNavigate(ROUTES_PATH['Bills'])
   }
 
   // not need to cover this function by tests
@@ -92,7 +92,11 @@ export default class NewBill {
       .then(() => {
         this.onNavigate(ROUTES_PATH['Bills'])
       })
-      .catch(error => console.error(error))
+      .catch(error => {
+        let path = ROUTES_PATH['NewBill']
+        let rootDiv = document.getElementById('root')
+        rootDiv.innerHTML = ROUTES({ path, error })
+      })
     }
   }
 }
