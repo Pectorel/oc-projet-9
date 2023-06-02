@@ -42,48 +42,48 @@ describe("Given I am connected as an employee", () => {
       const datesSorted = [...dates].sort(antiChrono)
       expect(dates).toEqual(datesSorted)
     })
-    describe("When I click on an eye icon", () => {
-      test("Then the image src inside the modal should change to the data-bill-url attribute of the clicked icon", async () => {
-        Object.defineProperty(window, 'localStorage', { value: localStorageMock })
-        window.localStorage.setItem('user', JSON.stringify({
-          type: 'Employee'
-        }))
-        const root = document.createElement("div")
-        root.setAttribute("id", "root")
-        // Renewing the Bills page
-        document.body.innerHTML = ""
-        document.body.append(root)
-        router()
-        window.onNavigate(ROUTES_PATH.Bills)
 
-        await waitFor(() => screen.getAllByTestId("icon-eye"))
+  })
+  describe("When I click on an eye icon", () => {
+    test("Then the image src inside the modal should change to the data-bill-url attribute of the clicked icon", async () => {
+      Object.defineProperty(window, 'localStorage', { value: localStorageMock })
+      window.localStorage.setItem('user', JSON.stringify({
+        type: 'Employee'
+      }))
+      const root = document.createElement("div")
+      root.setAttribute("id", "root")
+      // Renewing the Bills page
+      document.body.innerHTML = ""
+      document.body.append(root)
+      router()
+      window.onNavigate(ROUTES_PATH.Bills)
 
-        const icons = screen.getAllByTestId("icon-eye");
+      await waitFor(() => screen.getAllByTestId("icon-eye"))
 
-        for(let icon of icons)
-        {
-          userEvent.click(icon)
-          let ticket = screen.getByTestId("bill-ticket");
-          expect(ticket.getAttribute("src")).toEqual(icon.getAttribute("data-bill-url"))
-        }
+      const icons = screen.getAllByTestId("icon-eye");
 
-      })
+      for(let icon of icons)
+      {
+        userEvent.click(icon)
+        let ticket = screen.getByTestId("bill-ticket");
+        expect(ticket.getAttribute("src")).toEqual(icon.getAttribute("data-bill-url"))
+      }
+
     })
-    describe("When I click on the new Bill button", () => {
+  })
+  describe("When I click on the new Bill button", () => {
 
-      test("Then the new Bill page is loaded", async () => {
+    test("Then the new Bill page is loaded", async () => {
 
-        await waitFor(() => screen.getAllByTestId("btn-new-bill"))
+      await waitFor(() => screen.getAllByTestId("btn-new-bill"))
 
-        const newBillBtn = screen.getByTestId("btn-new-bill")
-        newBillBtn.click()
+      const newBillBtn = screen.getByTestId("btn-new-bill")
+      newBillBtn.click()
 
-        await waitFor(() => screen.getByTestId("form-new-bill"))
+      await waitFor(() => screen.getByTestId("form-new-bill"))
 
-        let form = screen.getByTestId("form-new-bill")
-        expect(form).toBeTruthy()
-
-      })
+      let form = screen.getByTestId("form-new-bill")
+      expect(form).toBeTruthy()
 
     })
 
