@@ -80,7 +80,7 @@ export default class NewBill {
       status: 'pending'
     }
     this.updateBill(bill)
-    //this.onNavigate(ROUTES_PATH['Bills'])
+    this.onNavigate(ROUTES_PATH['Bills'])
   }
 
   // not need to cover this function by tests
@@ -93,9 +93,7 @@ export default class NewBill {
         this.onNavigate(ROUTES_PATH['Bills'])
       })
       .catch(error => {
-        let path = ROUTES_PATH['NewBill']
-        let rootDiv = document.getElementById('root')
-        rootDiv.innerHTML = ROUTES({ path, error })
+        console.log(error)
       })
     }
   }
